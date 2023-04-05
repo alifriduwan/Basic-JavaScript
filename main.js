@@ -1,21 +1,17 @@
-// Method Object.create()
-
-// structure Object.create(prototype, [propertiesObject])
-var car = {
-  // => prototype
-  drive: function () {
-    console.log("driving a car"); //ลูกๆของมันสามารถเรียกใช้ฟังก์ชันนี้ได้
-  },
-};
+var car = {};
 
 var redCar = Object.create(car);
-var blackCar = Object.create(car, {
-  // add properties
-  foo: { writable: true, configurable: true, value: "fooValue" }, //descriptor
-  bar: { writable: true, configurable: true, value: "barValue" },
-});
+var greenCar = Object.create(car);
 
-redCar.drive(); //driving a car
-blackCar.drive(); //driving a car
-console.log(blackCar.foo); //fooValue
-console.log(blackCar.bar); //barValue
+// add properties for objects car เพิ่มทีหลัง
+car.drive = function () {
+  console.log("What a drive!");
+};
+
+redCar.drive(); //What a drive!
+greenCar.drive(); //What a drive!
+
+// using Object.getPrototypeOf() เพื่อตรวจสอบว่ามีอะไรเป็นแม่แบบ
+
+console.log(Object.getPrototypeOf(redCar) == car); //true
+console.log(Object.getPrototypeOf(greenCar) == car); //true
