@@ -1,14 +1,17 @@
-// การเข้าถึง properties
+// using [] for accessing properties
 
-var obj = {
-  a: 1,
-  myFunction: function () {
-    console.log("call myFunction");
+var students = {
+  "First name": "Manoch",
+  "Last name": "Auma",
+  "Who are you": function () {
+    console.log("I am a student");
   },
+  nickname: "Bar",
 };
 
-console.log(obj.a); //1
-obj.a = 2; // change value of key a to 2
-console.log(obj.a); //2
-console.log(typeof obj.myFunction); //function
-obj.myFunction(); //call myFunction เป็นการเรียกใช้ obj function
+console.log(students["First name"]); //Manoch
+var lastName = "Last name";
+console.log(students[lastName]); //Auma
+students["Who are you"](); //I am a student เรียกใช้ฟังก์ชันที่อยู๋ภายในออบเจ็ค
+console.log(students.nickname); //Bar
+console.log(students["nickname"]); //Bar
