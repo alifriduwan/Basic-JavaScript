@@ -1,15 +1,30 @@
-// การส่งค่าให้ตัวแปร
+// this
 
-var obj1 = { a: 1, b: 2 };
-var obj2 = obj1; // pass by reference   เมื่อมีการแก้ไข obj2 ทำให้ obj1 เปลี่ยนไปด้วย
+var obj = {
+  a: 1,
+  foo: function () {
+    return 2;
+  },
+  bar: function () {
+    console.log(this.a); // this a เป็นการเข้าถึง property a
+  },
+  zoo: function () {
+    console.log(this.foo()); // this foo เป็นการเข้าถึง property foo()
+  },
+};
 
-obj2.a = 17;
-obj1.b = 14;
-console.log(obj1.a); //17
-console.log(obj2.b); //14
+obj.bar(); //1
+obj.zoo(); //2
 
-var value1 = 15;
-var value2 = value1; //pass by value เมื่อมีการเปลี่ยนที่ value2 จะไม่ส่งผลกับ value1
+var obj2 = {
+  foo: function () {
+    this.a = 17; // add property a to obj2
+    console.log(this.a); //17
+  },
+  bar: function () {
+    console.log(this.a); //17
+  },
+};
 
-value2 = 12;
-console.log(value1); //15
+obj2.foo(); //17
+obj2.bar(); //17
