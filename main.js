@@ -1,15 +1,14 @@
-// Object
-// key : value
+// การเข้าถึง properties
 
-// empty object
-
-var font = {};
-
-var fonts = {
-  color: "red", //key is color : value is red datatype string
-  myFunction: function (param) {}, // keyชื่อ myFunction : value is method
-  Option: {
-    //key is option , value is object ซ้อน object
-    value: 1,
+var obj = {
+  a: 1,
+  myFunction: function () {
+    console.log("call myFunction");
   },
 };
+
+console.log(obj.a); //1
+obj.a = 2; // change value of key a to 2
+console.log(obj.a); //2
+console.log(typeof obj.myFunction); //function
+obj.myFunction(); //call myFunction เป็นการเรียกใช้ obj function
