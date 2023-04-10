@@ -7,5 +7,7 @@
     { "firstName": "Somsri", "lastName": "Jaidee" },
     { "firstName": "Somsuk", "lastName": "Meejai" },
     { "firstName": "Somruk", "lastName": "Deejai" }
-  ]
+  ],
+
+  "cars": ["Toyota", "BMW", "Tesla"]
 }
